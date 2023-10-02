@@ -7,6 +7,7 @@ import { mockCartItems, mockProducts } from '../../mocks/data';
 import { act } from 'react-test-renderer';
 import { store } from '../../store';
 import { addToCart } from '../../Features/Cart/cartSlice';
+import { ProductItem } from '../ProductItem';
 
 jest.mock('../../core-hooks', () => ({
   useAppDispatch: jest.fn(),
@@ -19,7 +20,7 @@ describe('ProductItem component testing', () => {
   const mockSelector = jest.fn();
   const tree = (
     <Provider store={store}>
-      <Products />
+      <ProductItem product={mockProducts[0]} />
     </Provider>
   );
 
@@ -59,19 +60,25 @@ describe('ProductItem component testing', () => {
     });
   });
 
-  // test('should call when user press add button', async () => {
-  //   const { getByTestId } = render(tree);
+  test('should call when user press add button', async () => {
+    mockSelector.mockReturnValue({
+      cartItems: mockCartItems,
+    });
+    const { getByTestId } = render(tree);
 
-  //   await act(() => {
-  //     fireEvent.press(getByTestId('add-btn'));
-  //   });
-  // });
+    await act(() => {
+      fireEvent.press(getByTestId('add-btn'));
+    });
+  });
 
-  // test('should call when user press remove button', async () => {
-  //   const { getByTestId } = render(tree);
+  test('should call when user press remove button', async () => {
+    mockSelector.mockReturnValue({
+      cartItems: mockCartItems,
+    });
+    const { getByTestId } = render(tree);
 
-  //   await act(() => {
-  //     fireEvent.press(getByTestId('remove-btn'));
-  //   });
-  // });
+    await act(() => {
+      fireEvent.press(getByTestId('remove-btn'));
+    });
+  });
 });
