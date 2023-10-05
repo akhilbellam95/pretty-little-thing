@@ -29,7 +29,15 @@ $ yarn android
 
 ### Build for iOS
 
-1. Build the iOS app:
+1. Install pods:
+
+```bash
+$ cd ios && pod install
+```
+
+2. Move back to the project root directory
+
+3. Run the iOS app:
 
 ```bash
 $ yarn ios
