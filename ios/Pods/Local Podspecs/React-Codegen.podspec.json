@@ -1,6 +1,6 @@
 {
   "name": "React-Codegen",
-  "version": "0.71.8",
+  "version": "0.71.7",
   "summary": "Temp pod for generated files for React Native",
   "homepage": "https://facebook.com/",
   "license": "Unlicense",
@@ -45,7 +45,7 @@
     "ReactCommon/turbomodule/core": [
 
     ],
-    "hermes-engine": [
+    "React-jsc": [
 
     ]
   }
